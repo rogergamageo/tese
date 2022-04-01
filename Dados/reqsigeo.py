@@ -1,3 +1,5 @@
+"Função para baixar dados do SIGEO-Niteroi-Dados Abertos"
+
 import wget
 
 pasta = "/home/rogeriogama/Área de Trabalho/Projetos/Tese/Dados/"
