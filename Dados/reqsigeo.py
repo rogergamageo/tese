@@ -12,9 +12,11 @@ nomea = "logradouro"
 
 
 def baixar_sigeo(url, pasta, nomea):
+
     wget.download(url, pasta + nomea + ".geojson")
 
 # if __name__ == "main":
 
 
+# for x in tabela:
 baixar_sigeo(url, pasta, nomea)
