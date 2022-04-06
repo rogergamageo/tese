@@ -16,7 +16,7 @@ def baixar_sigeo(url, pasta, nomea):
     wget.download(url, pasta + nomea + ".geojson")
 
 # if __name__ == "main":
-
+df =  pd.read_csv("/home/rogeriogama/Área de Trabalho/Projetos/tese/Dados/SIGEO/apisigeo.csv")
 for x in len(range(df):
              baixar_sigeo(df['url'][x], pasta, df['nomea'][x])
 
