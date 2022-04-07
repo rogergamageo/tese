@@ -2,6 +2,7 @@ import wget
 import pandas as pd
 from zipfile import ZipFile
 from urllib.error import HTTPError
+import os.path
 
 pasta = "/home/rogeriogama/Área de Trabalho/Projetos/tese/Dados/SIGEO/imagem/"
 
@@ -24,11 +25,14 @@ linha = ['74714', '74704', '74694', '74684', '74674', '74664', '74654', '74644',
 # print(df)
 for x in coluna:
     for y in linha:
-        try:
-            baixar_imagem("http://www.sigeo.niteroi.rj.gov.br/ortofotos/2019/TIFF/" +
-                          '{}-{}'.format(x, y) + "-TIFF.zip", pasta, '{}-{}'.format(x, y))
-            #print("http://www.sigeo.niteroi.rj.gov.br/ortofotos/2019/TIFF/"+ '{}-{}'.format(x, y) + "-TIFF.zip")
-        except HTTPError as err:
-            if err.code == 404:
-                print('{}-{}'.format(x, y))
-                continue
+        if(os.path.isfile(pasta+'{}-{}'.format(x, y)+'.zip')):
+            print("O arquivo existe")
+        else:
+            try:
+                baixar_imagem("http://www.sigeo.niteroi.rj.gov.br/ortofotos/2019/TIFF/" +
+                              '{}-{}'.format(x, y) + "-TIFF.zip", pasta, '{}-{}'.format(x, y))
+
+            except HTTPError as err:
+                if err.code == 404:
+                    print('{}-{}'.format(x, y))
+                    continue
