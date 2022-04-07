@@ -16,6 +16,9 @@ def baixar_sigeo(url, pasta, nomea):
 
     wget.download(url, pasta + nomea + ".geojson")
 
+# Baixar os dados a partir de uma listagem de API
+# Falta fazer: Criar uma restrição se o dado já esta baixado para não baixar novamente e baixar apenas dados novos
+
 
 # if __name__ == "main":
 df = pd.read_csv(
