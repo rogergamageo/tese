@@ -3,16 +3,13 @@ import pandas as pd
 from zipfile import ZipFile
 from urllib.error import HTTPError
 
-pasta = "/home/rogeriogama/Área de Trabalho/Projetos/tese/Dados/SIGEO/imagem"
+pasta = "/home/rogeriogama/Área de Trabalho/Projetos/tese/Dados/mds"
 
 # Função de requisição para a API SIGEO
 
 
 def baixar_imagem(url, pasta, nomea):
     wget.download(url, pasta + nomea + ".zip")
-    z = ZipFile(pasta+nomea+'.zip', 'r')
-    z.extractall(pasta)
-    z.close()
 
 
 # Baixar os dados a partir de uma listagem de url
@@ -25,7 +22,7 @@ linha = ['74714', '74704', '74694', '74684', '74674', '74664', '74654', '74644',
 for x in coluna:
     for y in linha:
         try:
-            baixar_imagem("http://www.sigeo.niteroi.rj.gov.br/ortofotos/2019/TIFF/" +
+            baixar_imagem("http://www.sigeo.niteroi.rj.gov.br/ortofotos/2019/MDT/" +
                           '{}-{}'.format(x, y) + "-TIFF.zip", pasta, '{}-{}'.format(x, y))
             #print("http://www.sigeo.niteroi.rj.gov.br/ortofotos/2019/TIFF/"+ '{}-{}'.format(x, y) + "-TIFF.zip")
         except HTTPError as err:
