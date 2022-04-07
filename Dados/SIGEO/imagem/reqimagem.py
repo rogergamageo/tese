@@ -3,7 +3,7 @@ import pandas as pd
 from zipfile import ZipFile
 from urllib.error import HTTPError
 
-pasta = "/home/rogeriogama/Área de Trabalho/Projetos/tese/Dados/SIGEO/imagem"
+pasta = "/home/rogeriogama/Área de Trabalho/Projetos/tese/Dados/SIGEO/imagem/"
 
 # Função de requisição para a API SIGEO
 
